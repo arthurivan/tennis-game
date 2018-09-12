@@ -10,7 +10,7 @@
 		var canvas, cx;
 		//ball
 		var ballX = ballY = 75;
-		var ballSpeed = 2;
+		var ballSpeed = 5;
 
 		window.onload = function() {
 			console.log('hello world');
@@ -26,6 +26,9 @@
 		}
 
 		function moveEverything() {
+			if (ballX > canvas.width) {
+				ballSpeed *= -1;
+			}
 			ballX += ballSpeed;
 			
 		}

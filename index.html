@@ -8,7 +8,10 @@
 	<canvas id="gameCanvas" width="800" height="600"></canvas>
 	<script>
 		var canvas, cx;
+		//ball
 		var ballX = ballY = 75;
+		var ballSpeed = 2;
+
 		window.onload = function() {
 			console.log('hello world');
 
@@ -23,7 +26,7 @@
 		}
 
 		function moveEverything() {
-			ballX += 2;
+			ballX += ballSpeed;
 			
 		}
 

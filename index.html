@@ -8,14 +8,26 @@
 	<canvas id="gameCanvas" width="800" height="600"></canvas>
 	<script>
 		var canvas, cx;
+		var ballX = ballY = 75;
 		window.onload = function() {
 			console.log('hello world');
 
 			canvas = document.getElementById('gameCanvas');
 			cx = canvas.getContext('2d');
 
+			drawEverything();
+		}
+
+		function drawEverything() {
+			//background
 			cx.fillStyle = 'black';
 			cx.fillRect(0,0, canvas.width,canvas.height);
+
+			//ball
+			cx.fillStyle = 'white';
+			cx.beginPath();
+			cx.arc(ballX,ballY, 10, 0,7);
+			cx.fill();
 		}
 	</script>
 </body>

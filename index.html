@@ -26,7 +26,9 @@
 		}
 
 		function moveEverything() {
-			if (ballX > canvas.width) {
+			//bounce off right and left edge
+			if (ballX > canvas.width ||
+				  ballX < 0) {
 				ballSpeed *= -1;
 			}
 			ballX += ballSpeed;

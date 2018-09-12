@@ -15,10 +15,11 @@
 			canvas = document.getElementById('gameCanvas');
 			cx = canvas.getContext('2d');
 
-			drawEverything();
+			setInterval(drawEverything, 1000);
 		}
 
 		function drawEverything() {
+			ballX += 50;
 			//background
 			cx.fillStyle = 'black';
 			cx.fillRect(0,0, canvas.width,canvas.height);

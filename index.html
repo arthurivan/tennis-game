@@ -12,6 +12,10 @@
 		var ballX = ballY = 75;
 		var ballXSpeed = 5;
 		var ballYSpeed = 5;
+
+		//left paddle
+		var paddleLeftY = 200;
+
 		window.onload = function() {
 			console.log('hello world');
 
@@ -45,6 +49,11 @@
 			//background
 			cx.fillStyle = 'black';
 			cx.fillRect(0,0, canvas.width,canvas.height);
+
+			//left paddle
+			cx.fillStyle = "white";
+			cx.beginPath();
+			cx.fillRect(20,paddleLeftY, 10,100);
 
 			//ball
 			cx.fillStyle = 'white';

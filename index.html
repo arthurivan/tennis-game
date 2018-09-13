@@ -17,6 +17,10 @@
 		const PADDLE_LEFT_X = 20;
 		var paddleLeftY = 200;
 
+		//right paddle
+		const PADDLE_RIGHT_X = 770;
+		var paddleRightY = 200;
+
 		const PADDLE_HEIGHT = 100;
 		const PADDLE_THICKNESS = 10;
 
@@ -99,6 +103,9 @@
 
 			//left paddle
 			colorRect(PADDLE_LEFT_X,paddleLeftY, PADDLE_THICKNESS,PADDLE_HEIGHT, 'white');
+
+			//right paddle
+			colorRect(PADDLE_RIGHT_X,paddleRightY, PADDLE_THICKNESS,PADDLE_HEIGHT, 'white');
 
 			//ball
 			colorCircle(ballX,ballY, 10, 'white');

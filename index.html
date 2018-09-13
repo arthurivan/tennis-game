@@ -62,7 +62,12 @@
 
 		function moveEverything() {
 			//bounce off right and left edge
-			if (ballX < 0 || ballX > canvas.width) {
+			if (ballX < 0) {
+				paddleRightScore++;
+				ballReset();
+			}
+			if (ballX > canvas.width) {
+				paddleLeftScore++;
 				ballReset();
 			}
 			if (ballX > canvas.width) {

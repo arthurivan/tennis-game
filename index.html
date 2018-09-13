@@ -10,8 +10,8 @@
 		var canvas, cx;
 		//ball
 		var ballX = ballY = 75;
-		var ballXSpeed = 5;
-		var ballYSpeed = 5;
+		var ballXSpeed = 8;
+		var ballYSpeed = 8;
 
 		//left paddle
 		const PADDLE_LEFT_X = 20;
@@ -61,7 +61,7 @@
 
 		function moveEverything() {
 			//bounce off right and left edge
-			if (ballX < 0) {
+			if (ballX < 0 || ballX > canvas.width) {
 				ballReset();
 			}
 			if (ballX > canvas.width) {
@@ -77,6 +77,13 @@
 				  ballY < paddleLeftY + PADDLE_HEIGHT &&
 				  ballX < PADDLE_LEFT_X + PADDLE_THICKNESS &&
 				  ballX > PADDLE_LEFT_X) {
+				ballXSpeed *= -1;
+			}
+			//bounce off right paddle
+			if (ballY > paddleRightY &&
+				  ballY < paddleRightY + PADDLE_HEIGHT &&
+				  ballX > PADDLE_RIGHT_X &&
+				  ballX < PADDLE_RIGHT_X + PADDLE_THICKNESS) {
 				ballXSpeed *= -1;
 			}
 

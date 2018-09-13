@@ -10,8 +10,8 @@
 		var canvas, cx;
 		//ball
 		var ballX = ballY = 75;
-		var ballSpeed = 5;
-
+		var ballXSpeed = 5;
+		var ballYSpeed = 5;
 		window.onload = function() {
 			console.log('hello world');
 
@@ -29,9 +29,15 @@
 			//bounce off right and left edge
 			if (ballX > canvas.width ||
 				  ballX < 0) {
-				ballSpeed *= -1;
+				ballXSpeed *= -1;
 			}
-			ballX += ballSpeed;
+			//bounce off top and bottom
+			if (ballY > canvas.height ||
+				  ballY < 0) {
+				ballYSpeed *= -1;
+			}
+			ballX += ballXSpeed;
+			ballY += ballYSpeed;
 			
 		}
 

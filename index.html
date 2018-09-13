@@ -45,21 +45,29 @@
 			
 		}
 
+		function colorRect(topLeftX,topLeftY, width,height, color) {
+			cx.fillStyle = color;
+			cx.beginPath();
+			cx.fillRect(topLeftX,topLeftY, width,height);
+		}
+
+		function colorCircle(centerX,centerY, size, color) {
+			cx.fillStyle = color;
+			cx.beginPath();
+			cx.arc(centerX,centerY, 10, 0,Math.PI*2);
+			cx.fill();
+		}
+
 		function drawEverything() {
 			//background
-			cx.fillStyle = 'black';
-			cx.fillRect(0,0, canvas.width,canvas.height);
+			colorRect(0,0, canvas.width,canvas.height, 'black');
 
 			//left paddle
-			cx.fillStyle = "white";
-			cx.beginPath();
-			cx.fillRect(20,paddleLeftY, 10,100);
+			colorRect(20,paddleLeftY, 10,100, 'white');
 
 			//ball
-			cx.fillStyle = 'white';
-			cx.beginPath();
-			cx.arc(ballX,ballY, 10, 0,7);
-			cx.fill();
+			colorCircle(ballX,ballY, 10, 'white');
+			
 		}
 	</script>
 </body>

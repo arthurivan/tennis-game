@@ -44,7 +44,7 @@
 
 			canvas.addEventListener('mousemove', function(evt) {
 				var mousePos = calculateMousePos(evt);
-				paddleLeftY = mousePos.y - (PADDLE_HEIGHT/2);
+				paddleRightY = mousePos.y - (PADDLE_HEIGHT/2);
 			});
 
 			setInterval(function() {
@@ -56,6 +56,7 @@
 		function ballReset() {
 			ballX = canvas.width/2
 			ballY = canvas.height/2;
+			ballXSpeed *= -1;
 		}
 
 		function moveEverything() {

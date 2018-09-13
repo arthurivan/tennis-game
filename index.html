@@ -83,6 +83,8 @@
 				  ballY < paddleLeftY + PADDLE_HEIGHT &&
 				  ballX < PADDLE_LEFT_X + PADDLE_THICKNESS &&
 				  ballX > PADDLE_LEFT_X) {
+				var paddleLeftCenter = paddleLeftY + (PADDLE_HEIGHT/2);
+				ballYSpeed = (ballY - paddleLeftCenter) *.3;
 				ballXSpeed *= -1;
 			}
 			//bounce off right paddle
@@ -90,6 +92,8 @@
 				  ballY < paddleRightY + PADDLE_HEIGHT &&
 				  ballX > PADDLE_RIGHT_X &&
 				  ballX < PADDLE_RIGHT_X + PADDLE_THICKNESS) {
+				var paddleRightCenter = paddleRightY + (PADDLE_HEIGHT/2);
+				ballYSpeed = (ballY - paddleRightCenter) *.35;
 				ballXSpeed *= -1;
 			}
 

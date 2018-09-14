@@ -61,10 +61,10 @@
 		}
 
 		function moveComputerPaddle() {
-			if (ballY < paddleRightY + PADDLE_HEIGHT/2) {
+			if (ballY < (paddleRightY + PADDLE_HEIGHT/2) - 35) {
 				paddleRightY -= 5;
 			}
-			if (ballY > paddleRightY + PADDLE_HEIGHT) {
+			if (ballY > (paddleRightY + PADDLE_HEIGHT/2) + 35) {
 				paddleRightY += 5;
 			}
 		}

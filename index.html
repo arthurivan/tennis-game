@@ -55,6 +55,10 @@
 		}
 
 		function ballReset() {
+			if (paddleLeftScore > 3 ||
+				  paddleRightScore > 3) {
+				paddleLeftScore = paddleRightScore = 0;
+			}
 			ballX = canvas.width/2
 			ballY = canvas.height/2;
 			ballXSpeed *= -1;

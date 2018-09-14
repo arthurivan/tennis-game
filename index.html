@@ -25,6 +25,8 @@
 		const PADDLE_HEIGHT = 100;
 		const PADDLE_THICKNESS = 10;
 
+		var showingWinScreen = false;
+
 		function calculateMousePos(evt) {
 			var rect = canvas.getBoundingClientRect();
 			var root = document.documentElement;
@@ -55,9 +57,17 @@
 		}
 
 		function ballReset() {
-			if (paddleLeftScore > 3 ||
-				  paddleRightScore > 3) {
+			if (paddleLeftScore > 3) {
+				showingWinScreen = true;
+				winner = "Left Wins!!!" + paddleLeftScore + ":" + paddleRightScore;
 				paddleLeftScore = paddleRightScore = 0;
+
+			}
+			if (paddleRightScore > 3) {
+				showingWinScreen = true;
+				winner = "Right Wins " + paddleRightScore + ":" + paddleLeftScore;
+				paddleLeftScore = paddleRightScore = 0;
+
 			}
 			ballX = canvas.width/2
 			ballY = canvas.height/2;
@@ -74,6 +84,9 @@
 		}
 
 		function moveEverything() {
+			if (showingWinScreen) {
+				return;
+			}
 			//update right paddle
 			moveComputerPaddle();
 			//bounce off right and left edge
@@ -140,6 +153,11 @@
 			//background
 			colorRect(0,0, canvas.width,canvas.height, 'black');
 
+
+			if (showingWinScreen) {
+				text(canvas.width/2 - 50,300, winner);
+				return;
+			}
 			//left paddle
 			colorRect(PADDLE_LEFT_X,paddleLeftY, PADDLE_THICKNESS,PADDLE_HEIGHT, 'white');
 

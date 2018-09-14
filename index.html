@@ -60,7 +60,18 @@
 			ballXSpeed *= -1;
 		}
 
+		function moveComputerPaddle() {
+			if (ballY < paddleRightY + PADDLE_HEIGHT/2) {
+				paddleRightY -= 5;
+			}
+			if (ballY > paddleRightY + PADDLE_HEIGHT) {
+				paddleRightY += 5;
+			}
+		}
+
 		function moveEverything() {
+			//update right paddle
+			moveComputerPaddle();
 			//bounce off right and left edge
 			if (ballX < 0) {
 				paddleRightScore++;

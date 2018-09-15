@@ -158,6 +158,11 @@
 			text(canvas.width/4,35, paddleLeftScore);
 			text(canvas.width/4 * 3, 35, paddleRightScore);
 
+			//net
+			for (var i = 10; i < canvas.height; i +=40) {
+				colorRect(canvas.width/2, i, 2,20, 'white');
+			}
+
 			if (showingWinScreen) {
 				cx.textAlign = "center";
 				text(canvas.width/2,300, winner);
@@ -173,6 +178,7 @@
 			//ball
 			colorCircle(ballX,ballY, 10, 'white');
 
+			
 		}
 	</script>
 </body>

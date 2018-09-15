@@ -57,17 +57,13 @@
 		}
 
 		function ballReset() {
-			if (paddleLeftScore > 3) {
+			if (paddleLeftScore == 3) {
 				showingWinScreen = true;
-				winner = "Left Wins!!!" + paddleLeftScore + ":" + paddleRightScore;
-				paddleLeftScore = paddleRightScore = 0;
-
+				winner = "Left Wins";
 			}
-			if (paddleRightScore > 3) {
+			if (paddleRightScore == 3) {
 				showingWinScreen = true;
-				winner = "Right Wins " + paddleRightScore + ":" + paddleLeftScore;
-				paddleLeftScore = paddleRightScore = 0;
-
+				winner = "Right Wins";
 			}
 			ballX = canvas.width/2
 			ballY = canvas.height/2;
@@ -85,6 +81,10 @@
 
 		function moveEverything() {
 			if (showingWinScreen) {
+				canvas.addEventListener('click', function(){
+					showingWinScreen = false;
+					paddleRightScore = paddleLeftScore = 0;
+				})
 				return;
 			}
 			//update right paddle
@@ -145,6 +145,7 @@
 
 		function text(x,y, score) {
 			cx.font = "30px Arial";
+			cx.textAlign = "center";
 			cx.fillStyle = 'white'
 			cx.fillText(score, x,y);
 		}
@@ -153,9 +154,13 @@
 			//background
 			colorRect(0,0, canvas.width,canvas.height, 'black');
 
+			//scores
+			text(canvas.width/4,35, paddleLeftScore);
+			text(canvas.width/4 * 3, 35, paddleRightScore);
 
 			if (showingWinScreen) {
-				text(canvas.width/2 - 50,300, winner);
+				cx.textAlign = "center";
+				text(canvas.width/2,300, winner);
 				return;
 			}
 			//left paddle
@@ -167,9 +172,6 @@
 			//ball
 			colorCircle(ballX,ballY, 10, 'white');
 
-			//scores
-			text(canvas.width/4,35, paddleLeftScore);
-			text(canvas.width/4 * 3, 35, paddleRightScore);
 		}
 	</script>
 </body>

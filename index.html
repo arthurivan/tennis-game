@@ -59,11 +59,11 @@
 		function ballReset() {
 			if (paddleLeftScore == 3) {
 				showingWinScreen = true;
-				winner = "Left Wins";
+				winner = "LEFT WINS";
 			}
 			if (paddleRightScore == 3) {
 				showingWinScreen = true;
-				winner = "Right Wins";
+				winner = "RIGHT WINS";
 			}
 			ballX = canvas.width/2
 			ballY = canvas.height/2;
@@ -161,6 +161,7 @@
 			if (showingWinScreen) {
 				cx.textAlign = "center";
 				text(canvas.width/2,300, winner);
+				text(canvas.width/2, 565, "CLICK TO CONTINUE")
 				return;
 			}
 			//left paddle
